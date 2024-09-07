@@ -21,13 +21,11 @@ public class TimezoneController : ControllerBase
     /// <param name="timezone">"ICT","GMT","PDT"</param>
     /// <returns></returns>
     [HttpGet(Name = "GetTime")]
-    [SwaggerResponse(200, "Returns the current date and time for the specified time zone")]
-    [SwaggerResponse(400, "Invalid time zone")]
     public DateTimeOffset Get([FromQuery] string timezone)
     {
         var queryHandler = new TimeZoneQueryHandler();
 
-        return queryHandler.Handle(new GetDateTimeOffsetQuery(timezone) );
-        
+        return queryHandler.Handle(new GetDateTimeOffsetQuery(timezone));
+
     }
 }
