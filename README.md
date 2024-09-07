@@ -35,7 +35,14 @@ Playground project for .net core 8
 - HttoClient
 
 - Security
+
+  - Authentication
+  - Authorization
   - JWT
   - API Protection
+  - Global exception
+    - ExceptionHandlingMiddleware
+
 - Monitoring
+
   - Health check
