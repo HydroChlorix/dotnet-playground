@@ -17,7 +17,7 @@ public class RandomController : ControllerBase
     [HttpGet(Name = "GetRandomNumber")]
     public int Get()
     {
-        return new Random().Next(1, 100);
+        return Random.Shared.Next(1, 100);
     }
 }
 
