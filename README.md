@@ -8,11 +8,13 @@ Playground project for .net core 8
 
 - Get timezone time
 
-- Create docker container
-
 - Testing
+
   - Unit test
   - Integration test
+
+- Create docker container
+
 - CI/CD
 
 ## Infrastructure
@@ -33,6 +35,7 @@ Playground project for .net core 8
 - HttoClient
 
 - Security
-
+  - JWT
+  - API Protection
 - Monitoring
   - Health check
