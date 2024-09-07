@@ -36,10 +36,6 @@ public class WeatherForecastController : ControllerBase
 [Route("[controller]")]
 public class RandomController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
     private readonly ILogger<RandomController> _logger;
 

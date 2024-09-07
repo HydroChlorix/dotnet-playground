@@ -1,6 +1,13 @@
-@Playground.API_HostAddress = http://localhost:5202
 
-GET {{Playground.API_HostAddress}}/weatherforecast/
+@HostAddress = http://localhost:5202
+
+GET {{HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+
+GET {{HostAddress}}/random/
 Accept: application/json
 
 ###
