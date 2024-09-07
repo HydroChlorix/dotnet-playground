@@ -20,5 +20,3 @@ public class RandomController : ControllerBase
         return Random.Shared.Next(1, 100);
     }
 }
-
-
