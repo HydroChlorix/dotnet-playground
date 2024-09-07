@@ -11,3 +11,10 @@ GET {{HostAddress}}/random/
 Accept: application/json
 
 ###
+
+
+
+GET {{HostAddress}}/SampleCache/
+Accept: application/json
+
+###
