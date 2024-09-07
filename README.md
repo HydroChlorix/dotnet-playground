@@ -8,6 +8,8 @@ Playground project for .net core 8
 
 - Get timezone time
 
+- Background Service
+
 - Testing
 
   - Unit test
@@ -42,7 +44,13 @@ Playground project for .net core 8
   - API Protection
   - Global exception
     - ExceptionHandlingMiddleware
+  - Data protection
+  - Secret manager
 
 - Monitoring
 
   - Health check
+
+## Database
+
+Table : Timezones
