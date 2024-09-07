@@ -30,3 +30,29 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 }
+
+
+[ApiController]
+[Route("[controller]")]
+public class RandomController : ControllerBase
+{
+    private static readonly string[] Summaries = new[]
+    {
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    };
+
+    private readonly ILogger<RandomController> _logger;
+
+    public RandomController(ILogger<RandomController> logger)
+    {
+        _logger = logger;
+    }
+
+    [HttpGet(Name = "GetRandomNumber")]
+    public int Get()
+    {
+        return new Random().Next(1, 100);
+    }
+}
+
+
