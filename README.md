@@ -8,6 +8,13 @@ Playground project for .net core 8
 
 - Get timezone time
 
+- Authentication
+  create controller authen
+  action login
+  action refresh token
+  action revoke token
+  action logout
+- 
 - Background Service
 
 - Testing
