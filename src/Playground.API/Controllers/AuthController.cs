@@ -17,4 +17,32 @@ public class AuthController : ControllerBase
     {
         _httpClient = httpClientFactory.CreateClient("Keycloak");
     }
+
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    {
+
+        if (request == null)
+            return BadRequest();
+
+        using var content = new FormUrlEncodedContent(
+        [
+            new KeyValuePair<string, string>("client_id", _clientId),
+            new KeyValuePair<string, string>("client_secret",_clientSecret),
+            new KeyValuePair<string, string>("grant_type", "password"),
+            new KeyValuePair<string, string>("username", request.Username),
+            new KeyValuePair<string, string>("password", request.Password)
+        ]);
+
+        HttpResponseMessage httpResponseMessage = await _httpClient.PostAsync("token", content);
+
+        httpResponseMessage.EnsureSuccessStatusCode();
+
+        var response = await httpResponseMessage.Content.ReadAsStringAsync();
+        var responseJson = JsonSerializer.Deserialize<KeyCloakSigninResponse>(response);
+
+        return Ok(responseJson);
+    }
+
 }
