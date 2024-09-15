@@ -43,6 +43,12 @@ builder.Services.AddAuthentication(options =>
         };
     });
 
+
+builder.Services.AddHttpClient("Keycloak", c =>
+{
+    c.BaseAddress = new Uri(builder.Configuration["Keycloak:BaseAddress"]);
+});
+
 // Persistence
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
