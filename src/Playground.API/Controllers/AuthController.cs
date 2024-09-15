@@ -93,5 +93,25 @@ public class AuthController : ControllerBase
         return Ok();
     }
 
+    [HttpPost("logout")]
+    [Authorize]
+    public async Task<IActionResult> Logout([FromBody] LogoutRequset logoutRequset)
+    {
+        if (logoutRequset == null)
+            return BadRequest();
 
+        using var content = new FormUrlEncodedContent(
+        [
+            new KeyValuePair<string, string>("client_id", _clientId),
+            new KeyValuePair<string, string>("client_secret",_clientSecret),
+            new KeyValuePair<string, string>("refresh_token",logoutRequset.refresh_token),
+        ]);
+
+        HttpResponseMessage httpResponseMessage = await _httpClient.PostAsync("logout", content);
+
+        var response = await httpResponseMessage.Content.ReadAsStringAsync();
+
+        // Implement logout logic using Keycloak
+        return NoContent();
+    }
 }

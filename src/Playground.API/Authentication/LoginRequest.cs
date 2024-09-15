@@ -5,11 +5,6 @@ public class LoginRequest
     public string Username { get; set; }
     public string Password { get; set; }
 }
-
-public class LogoutRequset
-{
-    public string refresh_token { get; set; }
-}
 public class KeyCloakSigninResponse
 {
     public string access_token { get; set; }
