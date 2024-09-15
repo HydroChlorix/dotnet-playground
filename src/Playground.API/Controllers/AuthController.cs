@@ -68,4 +68,30 @@ public class AuthController : ControllerBase
         return Ok(responseJson);
     }
 
+
+    [HttpPost("revoke")]
+    [Authorize]
+    public async Task<IActionResult> RevokeToken([FromBody] RevokeTokenRequest revokeTokenRequest)
+    {
+        if (revokeTokenRequest == null)
+            return BadRequest();
+
+        using var content = new FormUrlEncodedContent(
+        [
+            new KeyValuePair<string, string>("client_id", _clientId),
+            new KeyValuePair<string, string>("client_secret",_clientSecret),
+            new KeyValuePair<string, string>("token",revokeTokenRequest.Token),
+        ]);
+
+        HttpResponseMessage httpResponseMessage = await _httpClient.PostAsync("revoke", content);
+
+        httpResponseMessage.EnsureSuccessStatusCode();
+
+        var response = await httpResponseMessage.Content.ReadAsStringAsync();
+
+        // Implement token revocation logic using Keycloak
+        return Ok();
+    }
+
+
 }
